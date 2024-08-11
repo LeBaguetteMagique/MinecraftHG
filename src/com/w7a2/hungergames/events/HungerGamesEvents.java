@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPortalEvent;
@@ -45,6 +46,7 @@ public class HungerGamesEvents implements Listener {
             getServer().broadcastMessage(ChatColor.GOLD + deceased.getName() + " (" + ClassManager.getPlayerClass(deceased).getName() + ")" + ChatColor.AQUA + " ist gestorben!");
         }
     }
+
 
     @EventHandler
     public static void onPlayerHit(EntityDamageByEntityEvent event) {

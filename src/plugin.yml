@@ -2,6 +2,7 @@ name: HungerGames
 version: 1.0
 author: W7A2
 main: com.w7a2.hungergames.HungerGames
+depend: [LibsDisguises, ProtocolLib]
 commands:
   klassen:
     description: Zeigt alle verfügbaren Klassen an

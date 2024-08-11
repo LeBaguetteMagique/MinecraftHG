@@ -1,6 +1,7 @@
 package com.w7a2.hungergames.models;
 
 import com.w7a2.hungergames.models.classes.BlutsaugerClass;
+import com.w7a2.hungergames.models.classes.GestaltwanderClass;
 import com.w7a2.hungergames.models.classes.SpringerClass;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -41,12 +42,14 @@ public class ClassManager {
     // Klassen mit Fähigkeit
     public static final PlayerClass BLUTSAUGER = new BlutsaugerClass();
     public static final PlayerClass SPRINGER = new SpringerClass();
+    public static final PlayerClass GESTALTWANDLER = new GestaltwanderClass();
 
     static {
         classes.put(BERSERKER.getName().toLowerCase(), BERSERKER);
         classes.put(SOLDAT.getName().toLowerCase(), SOLDAT);
         classes.put(BLUTSAUGER.getName().toLowerCase(), BLUTSAUGER);
         classes.put(SPRINGER.getName().toLowerCase(), SPRINGER);
+        classes.put(GESTALTWANDLER.getName().toLowerCase(), GESTALTWANDLER);
         // TODO: Weitere Klassen hier hinzufügen
     }
 
