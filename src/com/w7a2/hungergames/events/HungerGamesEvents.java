@@ -4,6 +4,7 @@ import com.w7a2.hungergames.models.ClassManager;
 import com.w7a2.hungergames.models.PlayerClass;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,6 +27,7 @@ public class HungerGamesEvents implements Listener {
         player.sendMessage(ChatColor.AQUA + "Willkommen zu " + ChatColor.GOLD + "hg-pvp.de" + ChatColor.AQUA + "!");
     }
 
+
     @EventHandler
     public static void onPlayerDeath(PlayerDeathEvent event) {
         Player deceased = event.getEntity();
@@ -47,16 +49,21 @@ public class HungerGamesEvents implements Listener {
     @EventHandler
     public static void onPlayerHit(EntityDamageByEntityEvent event) {
         // Überprüfen, ob der Angreifer ein Spieler ist
-        if (event.getDamager() instanceof Player && event.getEntity() instanceof Player) {
+        if (event.getDamager() instanceof Player) {
             Player attacker = (Player) event.getDamager();
-            Player victim = (Player) event.getEntity();
+            Entity victim = event.getEntity();
 
             // Klasse des Angreifers abrufen
             PlayerClass attackerClass = ClassManager.getPlayerClass(attacker);
 
             if (attackerClass != null) {
-                // Spezifische Fähigkeit der Klasse anwenden
-                attackerClass.onHit(attacker, victim);
+                // Überprüfen, ob das Opfer ein Spieler oder ein anderes Lebewesen ist
+                if (victim instanceof Player) {
+                    attackerClass.onHit(attacker, (Player) victim);
+                } else if (victim instanceof LivingEntity) {
+                    // Falls das Opfer ein Mob ist (z.B. Zombie, Skelett)
+                    attackerClass.onHitMob(attacker, (LivingEntity) victim);
+                }
             }
         }
     }
