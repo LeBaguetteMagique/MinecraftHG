@@ -1,0 +1,2 @@
+# MinecraftHG
+Minecraft HungerGames Plugin
