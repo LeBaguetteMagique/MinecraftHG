@@ -1,6 +1,7 @@
 package com.w7a2.hungergames.models;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -40,6 +41,10 @@ public class PlayerClass {
 
     }
     public void onHitMob(Player attacker, LivingEntity victim) {
+
+    }
+
+    public void transformPlayer(Player attacker, Entity entity) {
 
     }
 }
